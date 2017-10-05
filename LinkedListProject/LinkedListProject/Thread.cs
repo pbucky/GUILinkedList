@@ -8,5 +8,9 @@ namespace LinkedListProject
 {
     class Thread
     {
+        public Thread()
+        {
+
+        }
     }
 }

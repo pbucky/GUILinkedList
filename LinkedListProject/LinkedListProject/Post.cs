@@ -8,5 +8,13 @@ namespace LinkedListProject
 {
     class Post
     {
+        public Post reply;
+        public String author;
+        public String text;
+        public Post(String a, String b)
+        {
+            author = a;
+            text = b;
+        }
     }
 }
