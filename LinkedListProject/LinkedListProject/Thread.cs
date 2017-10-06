@@ -15,20 +15,21 @@ namespace LinkedListProject
         public Rectangle backgroundBox;
         protected Texture2D tex;
         protected SpriteBatch spriteBat;
+        protected Game1 game;
         public Thread(Game1 game, String a, String t) : base(game)
         {
+            backgroundBox = new Rectangle(0, 0, 300, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+            this.game = game;
             head = new Post(game, a, t, this);
             spriteBat = game.spriteBatch;
-            backgroundBox = new Rectangle(0, 0, 300, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
             tex = new Texture2D(game.graphics.GraphicsDevice, 1, 1);
             tex.SetData(new[] { Color.White });
         }
         public override void Draw(GameTime gameTime)
         {
-            spriteBat.Begin();
-            spriteBat.Draw(tex, backgroundBox, Color.Tan);
-            spriteBat.End();
-            base.Draw(gameTime);
+            game.spriteBatch.Draw(tex, backgroundBox, Color.Tan);
+            head.Draw(gameTime);
+            //base.Draw(gameTime);
         }
         public override void Update(GameTime gameTime)
         {
