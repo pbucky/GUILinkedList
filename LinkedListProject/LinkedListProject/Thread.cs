@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace LinkedListProject
 {
-    class Thread : DrawableGameComponent
+    public class Thread : DrawableGameComponent
     {
         public Post head;
         public Rectangle backgroundBox;
