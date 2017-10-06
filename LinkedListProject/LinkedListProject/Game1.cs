@@ -1,4 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,6 +14,7 @@ namespace LinkedListProject
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public SpriteFont font1;
+        public List<Thread> threads;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -17,11 +23,15 @@ namespace LinkedListProject
 
         protected override void Initialize()
         {
+            
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
+            threads = new List<Thread>();
+            threads.Add(new Thread(this, "Nathan", "This be boolin'"));
+            //threads.ElementAt(0).head.Reply(new Post(this, "Jamie", "Incorrect.", threads.ElementAt(0)));
             spriteBatch = new SpriteBatch(GraphicsDevice);
             font1 = Content.Load<SpriteFont>("font1");
         }
@@ -42,7 +52,10 @@ namespace LinkedListProject
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
-
+            for (int i = 0; i < threads.Count; i++)
+            {
+                threads.ElementAt(i).Draw(gameTime);
+            }
             base.Draw(gameTime);
         }
     }

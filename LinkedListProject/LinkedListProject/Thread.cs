@@ -9,14 +9,16 @@ using Microsoft.Xna.Framework.Input;
 
 namespace LinkedListProject
 {
-    class Thread : DrawableGameComponent
+   public class Thread : DrawableGameComponent
     {
         public Post head;
         public Rectangle backgroundBox;
         protected Texture2D tex;
         protected SpriteBatch spriteBat;
+        protected Game1 game;
         public Thread(Game1 game, String a, String t) : base(game)
         {
+            this.game = game;
             head = new Post(game, a, t, this);
             spriteBat = game.spriteBatch;
             backgroundBox = new Rectangle(0, 0, 300, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
@@ -25,9 +27,10 @@ namespace LinkedListProject
         }
         public override void Draw(GameTime gameTime)
         {
-            spriteBat.Begin();
-            spriteBat.Draw(tex, backgroundBox, Color.Tan);
-            spriteBat.End();
+            game.spriteBatch.Begin();
+            game.spriteBatch.Draw(tex, backgroundBox, Color.Tan);
+            head.Draw(gameTime);
+            game.spriteBatch.End();
             base.Draw(gameTime);
         }
         public override void Update(GameTime gameTime)
