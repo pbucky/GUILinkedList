@@ -8,6 +8,7 @@ namespace LinkedListProject
     {
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
+        public SpriteFont font1;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -22,6 +23,7 @@ namespace LinkedListProject
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            font1 = Content.Load<SpriteFont>("font1");
         }
 
         protected override void UnloadContent()
