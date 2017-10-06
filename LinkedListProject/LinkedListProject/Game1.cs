@@ -6,7 +6,7 @@ namespace LinkedListProject
 {
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
+       public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         public Game1()
