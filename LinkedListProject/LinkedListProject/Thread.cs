@@ -17,7 +17,7 @@ namespace LinkedListProject
         protected SpriteBatch spriteBat;
         public Thread(Game1 game, String a, String t) : base(game)
         {
-            head = new Post(a, t);
+            head = new Post(game, a, t);
             spriteBat = game.spriteBatch;
             backgroundBox = new Rectangle(0, 0, 300, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
             tex = new Texture2D(game.graphics.GraphicsDevice, 1, 1);

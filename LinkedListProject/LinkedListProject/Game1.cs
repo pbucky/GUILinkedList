@@ -8,7 +8,6 @@ namespace LinkedListProject
     {
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
